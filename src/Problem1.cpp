@@ -23,7 +23,31 @@ We Picked this standard problem from Online , as its a very famous one and you w
 Leetcode .
 */
 #include <stdio.h>
+#include<stdlib.h>
 int* sumoftwo(int *nums, int target, int len){
 
-	return NULL;
+	if (nums == NULL || len <= 0)
+		return NULL;
+	int i, j,*a=(int*)malloc(2*sizeof(int));
+	for ( i = 0; i < len; i++)
+	{
+		for (j = i+1; j < len; j++)
+		{
+			if (j!=i && (nums[i] + nums[j] == target))
+			{
+				if (i < j)
+				{
+					a[0] = i;
+					a[1] = j;
+				}
+				else
+				{
+					a[0] = j;
+					a[1] = i;
+				}
+				return a;
+
+			}
+		}
+	}
 }
